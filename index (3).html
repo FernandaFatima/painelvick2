@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu Painel de Evolução – Vick</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f4fb;--card:#fff;--tx:#241f33;--mut:#6b6580;--pri:#6d4aff;--ok:#16a37f;--warn:#e69a00;--bad:#e5484d;--line:#e6e2f2}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15121f;--card:#201c2f;--tx:#f0edf8;--mut:#a39bbb;--pri:#9b82ff;--ok:#2fc9a0;--warn:#f2b232;--bad:#ff6b70;--line:#332e48}}
+:root[data-theme="dark"]{--bg:#15121f;--card:#201c2f;--tx:#f0edf8;--mut:#a39bbb;--pri:#9b82ff;--ok:#2fc9a0;--warn:#f2b232;--bad:#ff6b70;--line:#332e48}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:24px;margin:0}h2{font-size:17px;margin:0 0 10px}p.s{color:var(--mut);margin:4px 0 16px}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0;padding-bottom:4px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--tx);padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap;font:inherit}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.k b{display:block;font-size:26px}.k span{color:var(--mut);font-size:12px}
+.k.ok b{color:var(--ok)}.k.warn b{color:var(--warn)}.k.bad b{color:var(--bad)}
+.two{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:12px}
+.r{display:grid;grid-template-columns:130px 1fr 54px;gap:8px;align-items:center;margin:7px 0;font-size:13px}
+.bar{height:14px;background:var(--line);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;border-radius:8px;background:var(--pri);transition:width .6s}
+.tag{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;background:var(--line)}
+.box{border-left:4px solid var(--pri);padding:10px 12px;background:var(--bg);border-radius:8px;margin:8px 0;font-size:14px}
+.box.ok{border-color:var(--ok)}.box.warn{border-color:var(--warn)}
+textarea{width:100%;min-height:62px;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--bg);color:var(--tx);font:inherit}
+label{font-size:13px;font-weight:600;display:block;margin:12px 0 4px}
+.sec{display:none}.sec.on{display:block}
+.chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:14px}
+button.t{float:right;border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:8px;padding:4px 10px;cursor:pointer}
+</style></head><body><div class="w">
+<button class="t" onclick="var d=document.documentElement;d.dataset.theme=d.dataset.theme=='dark'?'light':'dark'">🌓</button>
+<h1>🚀 Meu Painel de Evolução</h1>
+<p class="s">Vick · SDR 1 · Jun–Out/2026 · Um retrato para a gente decidir juntas os próximos passos rumo ao Pleno.</p>
+<div class="tabs" id="tabs"></div>
+
+<div class="sec on" id="s0">
+<div class="g">
+<div class="c k"><b>60</b><span>reuniões agendadas (jun–out)</span></div>
+<div class="c k ok"><b>44</b><span>visitas concluídas (73%)</span></div>
+<div class="c k"><b>17.431</b><span>alunos potenciais gerados</span></div>
+<div class="c k ok"><b>78%</b><span>escolas com 4+ toques</span></div>
+<div class="c k warn"><b>21,7%</b><span>cancelamento / no-show</span></div>
+<div class="c k warn"><b>1,4%</b><span>conversão da base de set.</span></div>
+</div>
+<div class="two">
+<div class="c"><h2>💪 O que já é força</h2>
+<div class="box ok">Persistência: 111 de 142 escolas receberam 4+ tentativas.</div>
+<div class="box ok">Geração de agenda: 60 reuniões em 5 meses, em 10 consultores diferentes.</div>
+<div class="box ok">100% de comparecimento em escolas grandes (&gt;400 alunos).</div>
+<div class="box ok">Tom cordial e humano, que abre portas.</div></div>
+<div class="c"><h2>🎯 3 alavancas para o Pleno</h2>
+<div class="box">1. <b>Rastro de trabalho:</b> todo toque conta uma história no CRM.</div>
+<div class="box">2. <b>Qualidade do agendamento:</b> decisor + briefing + confirmação.</div>
+<div class="box">3. <b>Conversa de valor:</b> investigar e contornar objeções, não só convidar.</div></div>
+</div></div>
+
+<div class="sec" id="s1"><div class="two">
+<div class="c"><h2>Funil de setembro (142 escolas)</h2><div id="f"></div></div>
+<div class="c"><h2>Profundidade de cadência</h2><div id="cd"></div>
+<h2 style="margin-top:18px">Toques por semana</h2><div id="wk"></div></div>
+<div class="c"><h2>Toques por horário</h2><div id="hr"></div>
+<div class="box warn">Cerca de metade dos toques acontece depois das 16h. A manhã (9h–11h30) é a melhor janela para falar com diretores.</div></div>
+<div class="c"><h2>Onde estão as oportunidades</h2>
+<div class="box">Com contrato longo (ex.: Bernoulli até 2029) a conversa terminou rápido. Teste: "O que funciona bem hoje e o que você mudaria?"</div>
+<div class="box">Em St. Patrick, a resposta "pode mandar" ficou sem dia e hora. Teste: "Terça 14h ou quarta 15h?"</div>
+<div class="box">Em CE Viver, foram meses só no WhatsApp. Teste: ligar para a secretaria e variar o gancho.</div></div>
+</div></div>
+
+<div class="sec" id="s2"><div class="two">
+<div class="c"><h2>Desfecho das 60 reuniões</h2><div id="ds"></div></div>
+<div class="c"><h2>Evolução mensal</h2><div id="mn"></div></div>
+<div class="c"><h2>Antecedência × cancelamento</h2><div id="lt"></div>
+<div class="box warn">Janela ideal: 2 a 3 dias (6,7% de cancelamento). Com 4+ dias, 33%. Reaquecer em D-1.</div></div>
+<div class="c"><h2>Turno × cancelamento</h2><div id="tn"></div>
+<div class="box ok">Tarde: 12,9% · Manhã: 31%. Priorize 14h–16h30.</div>
+<div class="box">Capital: 88% de presença · Interior: 74%. No interior, confirmar 24h e 2h antes.</div></div>
+</div></div>
+
+<div class="sec" id="s2b">
+<div class="g">
+<div class="c k warn"><b>58%</b><span>das reuniões criadas nos dias 21–31 (35 de 60)</span></div>
+<div class="c k"><b>5%</b><span>criadas nos dias 1–10 (3 de 60)</span></div>
+<div class="c k ok"><b>90%</b><span>de conclusão nas visitas dos dias 21–31</span></div>
+<div class="c k bad"><b>44%</b><span>cancel./no-show nas visitas dos dias 1–10 (7 de 16)</span></div>
+</div>
+<div class="two">
+<div class="c"><h2>Quando a reunião foi criada</h2><div id="pc"></div>
+<p class="s" style="margin:8px 0 0">Jun–Out/2026 · 60 reuniões · <span style="color:var(--ok)">■</span> concluída <span style="color:var(--bad)">■</span> cancelada/no-show <span style="color:var(--warn)">■</span> aberta</p></div>
+<div class="c"><h2>Quando a reunião aconteceu</h2><div id="pr"></div>
+<div class="box warn">Das 16 visitas dos dias 1–10, 3 ainda estão abertas (outubro). Considerando só as 13 já encerradas, o cancelamento é de 54%.</div></div>
+<div class="c"><h2>Criação por mês e período</h2><div id="pm"></div>
+<div class="box ok">O padrão se repete todo mês: jun 8 de 13, jul 12 de 17, ago 6 de 14, set 7 de 13 foram criadas nos dias 21–31. Não é um mês isolado.</div></div>
+<div class="c"><h2>Antecedência média por período de criação</h2><div id="pl2"></div>
+<div class="box">Final do mês: 3,9 dias. A janela ideal é 2–3 dias, então está perto. As reuniões criadas nos dias 11–20 têm 6,3 dias e ficam na zona de risco.</div></div>
+</div>
+<div class="two">
+<div class="c"><h2>🔍 O que os dados mostram</h2>
+<div class="box">O trabalho de agendamento se concentra no fim do mês, e o começo parte quase do zero (a famosa "corrida de meta").</div>
+<div class="box ok">Reunião marcada perto da data tem alta presença (90%). Quando ela consegue urgência, funciona.</div>
+<div class="box warn">Reunião que cai no começo do mês seguinte esfria. Falta reconfirmação ativa.</div></div>
+<div class="c"><h2>🤔 Perguntas para a mentoria</h2>
+<p class="s" style="margin-top:0">São hipóteses, não conclusões. Só a Vick sabe o que acontece no início do mês.</p>
+<div class="box">O que consome seus primeiros 10 dias do mês? (rotinas, alinhamentos, base esgotada?)</div>
+<div class="box">Como seria uma meta semanal de 3 a 4 agendamentos em vez de acumular para o fim?</div>
+<div class="box">O que você faz hoje para reconfirmar uma reunião marcada com mais de 3 dias?</div></div>
+</div>
+<div class="c" style="margin-top:12px"><h2>✅ Plano de ação</h2>
+<div class="chk"><input type="checkbox"> <b>Ritmo:</b> distribuir a meta por semana (3 a 4 agendamentos/semana) em vez de deixar 8 a 10 para a última semana.</div>
+<div class="chk"><input type="checkbox"> <b>Dia 1:</b> começar o primeiro dia útil do mês já com bloco de prospecção e mensagens de rota.</div>
+<div class="chk"><input type="checkbox"> <b>Reaquecimento:</b> reunião com mais de 3 dias de antecedência ou no mês seguinte recebe WhatsApp em D-1 e ligação curta 2h antes.</div></div>
+</div>
+
+<div class="sec" id="s3">
+<div class="c"><h2>🧾 Rastro de trabalho: o que o CRM conta sobre o meu dia</h2>
+<p class="s" style="margin-top:0">Para ser Pleno, meu trabalho precisa ser visível e comprovável por qualquer pessoa que abra o registro. Estes números são o ponto de partida, e a meta é melhorar mês a mês.</p></div>
+<div class="g" style="margin-top:12px">
+<div class="c k warn"><b>223</b><span>de 688 atividades de set. sem descrição (32%)</span></div>
+<div class="c k warn"><b>20</b><span>intervalos ≥ 90 min sem registro</span></div>
+<div class="c k warn"><b>59%</b><span>reuniões com nota pós-visita (meta 85%)</span></div>
+<div class="c k bad"><b>38%</b><span>cancelamentos com motivo (meta 90%)</span></div>
+<div class="c k warn"><b>12</b><span>templates enviados com {{tag}} vazia</span></div>
+</div>
+<div class="two">
+<div class="c"><h2>Padrões para olharmos juntas</h2>
+<div class="box warn">Atividades concluídas em lote: 9 registros no mesmo minuto em 04/09 (15:04) e 5 em 04/09 (11:57).</div>
+<div class="box warn">Maior intervalo: 25/09, das 09:32 às 18:31, com poucos registros. Vale entender o que aconteceu.</div>
+<div class="box warn">Dias úteis sem nenhum registro: 08/09 e 23/09. Pode ter motivo; registrar a justificativa protege você.</div>
+<div class="box">Agendamentos precisam dizer: com quem falou, qual mensagem enviou, dor e solução atual, ano de vigência do contrato.</div></div>
+<div class="c"><h2>Hábitos que mudam isso</h2>
+<div class="chk"><input type="checkbox"> Registrar na hora: concluir só depois de descrever (1 linha basta).</div>
+<div class="chk"><input type="checkbox"> Nunca concluir atividade em lote.</div>
+<div class="chk"><input type="checkbox"> Bloco sem prospecção = registrar o motivo (treino, reunião, pausa).</div>
+<div class="chk"><input type="checkbox"> Conferir {{tags}} antes de disparar template.</div>
+<div class="chk"><input type="checkbox"> Todo agendamento com ficha: decisor, dor, concorrente, vigência.</div>
+<div class="chk"><input type="checkbox"> Todo no-show com motivo e tarefa de reagendar em 48h.</div></div>
+</div></div>
+
+<div class="sec" id="s4"><div class="c"><h2>✍️ Meu plano (preencho e levamos para a mentoria)</h2>
+<p class="s" style="margin-top:0">Fica salvo neste navegador.</p>
+<div id="pl"></div></div></div>
+
+<div class="c" id="envio-plano" style="margin-top:12px">
+<h2>📩 Enviar meu plano para a mentora</h2>
+<p class="s" style="margin-top:0">
+Depois de preencher suas respostas, clique no botão abaixo. O preenchimento continua salvo neste navegador.
+</p>
+<button id="sendPlanBtn" type="button" style="border:0;background:var(--pri);color:#fff;border-radius:10px;padding:10px 14px;font:inherit;cursor:pointer">
+Enviar meu plano
+</button>
+<div id="sendPlanStatus" role="status" aria-live="polite" style="margin-top:10px"></div>
+</div>
+
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const names=["Visão geral","Funil & cadência","Agendamentos","Ritmo do mês","Rastro de trabalho","Meu plano"];
+names.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>go(i);$('tabs').appendChild(b)});
+function go(i){document.querySelectorAll('.sec').forEach((s,j)=>s.classList.toggle('on',i==j));document.querySelectorAll('.tabs button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+go(0);
+function bars(id,rows,col,fmt){const m=Math.max(...rows.map(r=>r[1]));$(id).innerHTML=rows.map(r=>`<div class="r"><span>${r[0]}</span><div class="bar"><i style="width:${r[1]/m*100}%;background:${r[2]||col||'var(--pri)'}"></i></div><b>${fmt?fmt(r[1]):r[1]}</b></div>`).join('')}
+bars('f',[["Base trabalhada",142],["Sem retorno",110],["Resposta humana",32],["Conversa qualificada",11],["Interesse",5],["Reunião agendada",2]]);
+bars('cd',[["1 toque",8,'var(--bad)'],["2–3 toques",23,'var(--warn)'],["4–5 toques",48],["6+ toques",63,'var(--ok)']]);
+bars('wk',[["Semana 1",190],["Semana 2",103],["Semana 3",140],["Semana 4",71],["Semana 5",78]]);
+bars('hr',[["08h",6],["09h",24],["10h",38],["11h",142],["12h",14],["14h",31],["15h",86],["16h",165],["17h",178],["18h",5]]);
+bars('ds',[["Perdido",38,'var(--mut)'],["Ganho",1,'var(--ok)'],["Pipeline ativo",5,'var(--ok)'],["Cancel./no-show",13,'var(--bad)'],["Em aberto",3,'var(--warn)']]);
+bars('mn',[["Junho",15.4,0,v=>v+'%'],["Julho",23.5,0,v=>v+'%'],["Agosto",7.1,'var(--ok)',v=>v+'%'],["Setembro",30.8,'var(--bad)',v=>v+'%']]);
+$('mn').insertAdjacentHTML('afterbegin','<p class="s" style="margin:0 0 6px">Taxa de cancelamento por mês. Em agosto você mostrou que é possível: 13 criadas, 13 concluídas.</p>');
+bars('lt',[["0–1 dia",17.6,'var(--warn)',v=>v+'%'],["2–3 dias",6.7,'var(--ok)',v=>v+'%'],["4–7 dias",33.3,'var(--bad)',v=>v+'%'],["7+ dias",30,'var(--bad)',v=>v+'%']]);
+bars('tn',[["Manhã",31,'var(--bad)',v=>v+'%'],["Tarde",12.9,'var(--ok)',v=>v+'%']]);
+function stk(id,rows){$(id).innerHTML=rows.map(r=>{const t=r[1]+r[2]+r[3];return `<div class="r"><span>${r[0]}</span><div class="bar" style="display:flex;width:${Math.max(t/35*100,8)}%"><i style="width:${r[1]/t*100}%;background:var(--ok);border-radius:0"></i><i style="width:${r[2]/t*100}%;background:var(--bad);border-radius:0"></i><i style="width:${r[3]/t*100}%;background:var(--warn);border-radius:0"></i></div><b>${t}</b></div>`}).join('')}
+stk('pc',[["Dias 1–10",1,1,1],["Dias 11–20",17,5,0],["Dias 21–31",26,7,2]]);
+stk('pr',[["Dias 1–10",6,7,3],["Dias 11–20",10,3,0],["Dias 21–31",28,3,0]]);
+bars('pm',[["Jun · 21–31",8],["Jul · 21–31",12],["Ago · 21–31",6],["Set · 21–31",7],["Jun · 11–20",5],["Jul · 11–20",5],["Ago · 11–20",7],["Set · 11–20",5]]);
+bars('pl2',[["Dias 1–10",1.3,'var(--warn)',v=>v+'d'],["Dias 11–20",6.3,'var(--bad)',v=>v+'d'],["Dias 21–31",3.9,'var(--ok)',v=>v+'d']]);
+const q=["Ritmo do mês: o que me impede de agendar mais nos primeiros 10 dias, e o que eu testo no próximo mês?","Lead time: o que vou fazer para reduzir os agendamentos com 4+ dias de antecedência?","Higiene do CRM: qual será meu rito de registro diário?","Qual objeção de concorrente eu quero dominar primeiro, e como vou contorná-la?","Como vou garantir que o decisor esteja confirmado antes de enviar o convite?","Qual foi meu melhor mês (agosto?) e o que eu fiz diferente?","Onde eu quero estar no fim do ano?"];
+let st={};try{st=JSON.parse(localStorage.getItem('vick')||'{}')}catch(e){}
+$('pl').innerHTML=q.map((t,i)=>`<label>${t}</label><textarea data-i="${i}">${st[i]||''}</textarea>`).join('');
+document.querySelectorAll('textarea').forEach(t=>t.oninput=()=>{st[t.dataset.i]=t.value;try{localStorage.setItem('vick',JSON.stringify(st))}catch(e){}});
+
+const mentorEmail="fernandafatima@arcoeducacao.com.br";
+$("sendPlanBtn").addEventListener("click",()=>{
+  const fields=[...document.querySelectorAll("#pl textarea")];
+  const respostas=fields.map((f,i)=>`Pergunta ${i+1}:\n${f.value.trim()||"(sem resposta)"}`).join("\n\n");
+  const subject="Meu Plano de Evolução — Vick";
+  const body=`Olá, Fernanda!\n\nSegue meu plano de evolução preenchido.\n\n${respostas}`;
+  $("sendPlanStatus").textContent="Abrindo o seu aplicativo de e-mail com as respostas preenchidas...";
+  window.location.href=`mailto:${mentorEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+</script></body></html>
